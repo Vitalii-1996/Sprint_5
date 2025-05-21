@@ -41,12 +41,11 @@ class TestRegister:
         WebDriverWait(driver, 3).until(expected_conditions.presence_of_element_located(RegisterLocators.EMAIL_ERROR_TEXT))
 
         email_input_field_style = driver.find_element(*RegisterLocators.EMAIL_INPUT_FIELD).value_of_css_property('border')
-        assert data.RED_BORDER_COLOR in email_input_field_style
-
         password_input_field_style = driver.find_element(*RegisterLocators.PASSWORD_INPUT_FIELD).value_of_css_property('border')
-        assert data.RED_BORDER_COLOR in password_input_field_style
-
         submit_password_input_field_style = driver.find_element(*RegisterLocators.SUBMIT_PASSWORD_INPUT_FIELD).value_of_css_property('border')
+        
+        assert data.RED_BORDER_COLOR in email_input_field_style
+        assert data.RED_BORDER_COLOR in password_input_field_style
         assert data.RED_BORDER_COLOR in submit_password_input_field_style
 
     def test_register_existing_user_fails(self, driver):
@@ -66,10 +65,9 @@ class TestRegister:
         WebDriverWait(driver, 3).until(expected_conditions.presence_of_element_located(RegisterLocators.EMAIL_ERROR_TEXT))
 
         email_input_field_style = driver.find_element(*RegisterLocators.EMAIL_INPUT_FIELD).value_of_css_property('border')
-        assert data.RED_BORDER_COLOR in email_input_field_style
-
         password_input_field_style = driver.find_element(*RegisterLocators.PASSWORD_INPUT_FIELD).value_of_css_property('border')
-        assert data.RED_BORDER_COLOR in password_input_field_style
-
         submit_password_input_field_style = driver.find_element(*RegisterLocators.SUBMIT_PASSWORD_INPUT_FIELD).value_of_css_property('border')
+        
+        assert data.RED_BORDER_COLOR in email_input_field_style
+        assert data.RED_BORDER_COLOR in password_input_field_style
         assert data.RED_BORDER_COLOR in submit_password_input_field_style
