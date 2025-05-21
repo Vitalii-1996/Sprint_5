@@ -17,6 +17,9 @@ class RegisterLocators:
     ENTER_PASSWORD = By.NAME, 'password'
     SUBMIT_PASSWORD = By.NAME, 'submitPassword'
 
+class LoginLocators:
+    LOGIN_BUTTON = By.XPATH, ".//form//button[contains(text(), 'Войти')]"
+
 class MainPageLocators:
     PROFILE_IMAGE = By.XPATH, ".//div[contains(@class, 'header')]//button[@class = 'circleSmall']"
     PROFILE_NAME = By.XPATH, ".//div[contains(@class, 'header')]//h3[contains(@class, 'profileText')]"
