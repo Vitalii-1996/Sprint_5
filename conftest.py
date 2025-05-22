@@ -22,4 +22,6 @@ def login_user(driver):
     driver.find_element(*RegisterLocators.ENTER_EMAIL).send_keys(data.EXIST_USER_EMAIL)
     driver.find_element(*RegisterLocators.ENTER_PASSWORD).send_keys(data.DEFAULT_PASSWORD)
     driver.find_element(*LoginLocators.LOGIN_BUTTON).click()
+
+    WebDriverWait(driver, 3).until(expected_conditions.presence_of_element_located(MainPageLocators.LOGOUT_BUTTON))
     return driver

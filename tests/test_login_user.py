@@ -3,6 +3,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from locators.locators import RegisterLocators, LoginLocators, MainPageLocators
 import data
 
+
 class TestLogin:
     def test_login_user_opens_main_page(self, driver):
         driver.get(data.MAIN_URL)
@@ -19,8 +20,6 @@ class TestLogin:
         assert user_name == 'User.'
 
     def test_logout_shows_login_or_register_button(self, login_user):
-        WebDriverWait(login_user, 3).until(expected_conditions.presence_of_element_located(MainPageLocators.LOGOUT_BUTTON))
-
         login_user.find_element(*MainPageLocators.LOGOUT_BUTTON).click()
         WebDriverWait(login_user, 3).until(expected_conditions.presence_of_element_located(RegisterLocators.ENTRY_OR_REGISTER_BUTTON))
 
@@ -29,4 +28,3 @@ class TestLogin:
 
         assert not profile_image
         assert not profile_name
-
